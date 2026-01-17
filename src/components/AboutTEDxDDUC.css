@@ -6,7 +6,10 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: linear-gradient(180deg, #1a0000 0%, #000000 50%, #1a0000 100%);
+  background: 
+    radial-gradient(ellipse at top, rgba(220, 38, 38, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
+    linear-gradient(180deg, #000000 0%, #0a0000 50%, #000000 100%);
 }
 
 .about-dduc-background {
@@ -14,24 +17,234 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 130%;
+  height: 150%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.galaxy-spiral {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  background: 
+    conic-gradient(
+      from 0deg at 50% 50%,
+      transparent 0deg,
+      rgba(220, 38, 38, 0.05) 60deg,
+      transparent 120deg,
+      rgba(220, 38, 38, 0.05) 180deg,
+      transparent 240deg,
+      rgba(220, 38, 38, 0.05) 300deg,
+      transparent 360deg
+    );
+  border-radius: 50%;
+  animation: spiral-rotate 30s linear infinite;
+  filter: blur(40px);
+}
+
+@keyframes spiral-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.nebula-cloud {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.4;
+  animation: nebula-drift 25s ease-in-out infinite;
+}
+
+.nebula-1 {
+  width: 600px;
+  height: 600px;
+  top: 10%;
+  left: 10%;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.3) 0%, transparent 70%);
+  animation-delay: 0s;
+}
+
+.nebula-2 {
+  width: 500px;
+  height: 500px;
+  top: 60%;
+  right: 15%;
+  background: radial-gradient(circle, rgba(139, 0, 0, 0.3) 0%, transparent 70%);
+  animation-delay: 8s;
+}
+
+.nebula-3 {
+  width: 700px;
+  height: 700px;
+  bottom: 10%;
+  left: 50%;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.2) 0%, transparent 70%);
+  animation-delay: 15s;
+}
+
+@keyframes nebula-drift {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  33% { 
+    transform: translate(50px, -80px) scale(1.1);
+    opacity: 0.5;
+  }
+  66% { 
+    transform: translate(-30px, 60px) scale(0.9);
+    opacity: 0.4;
+  }
+}
+
+/* Star Field */
+.star-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
 }
 
-.cosmic-elements {
+.star {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(circle at 30% 20%, rgba(220, 38, 38, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 70% 80%, rgba(220, 38, 38, 0.15) 0%, transparent 40%);
-  animation: cosmic-drift 25s ease-in-out infinite;
+  width: 2px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--primary-red);
+  animation: star-twinkle infinite;
 }
 
-@keyframes cosmic-drift {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(30px, -20px) rotate(5deg); }
-  66% { transform: translate(-20px, 30px) rotate(-5deg); }
+@keyframes star-twinkle {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(220, 38, 38, 0.5);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.5);
+    box-shadow: 0 0 15px rgba(220, 38, 38, 1);
+  }
+}
+
+/* Floating Tesseracts */
+.floating-tesseracts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.floating-tesseract {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  animation: float-tesseract infinite;
+  transform-style: preserve-3d;
+}
+
+.mini-tesseract {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: rotate-mini 10s linear infinite;
+}
+
+.mini-face {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(220, 38, 38, 0.6);
+  background: rgba(220, 38, 38, 0.1);
+  box-shadow: 
+    0 0 20px rgba(220, 38, 38, 0.5),
+    inset 0 0 20px rgba(220, 38, 38, 0.2);
+}
+
+.mini-face:nth-child(1) {
+  transform: rotateY(0deg) translateZ(40px);
+}
+
+.mini-face:nth-child(2) {
+  transform: rotateY(90deg) translateZ(40px);
+}
+
+.mini-face:nth-child(3) {
+  transform: rotateY(180deg) translateZ(40px);
+}
+
+.mini-face:nth-child(4) {
+  transform: rotateY(-90deg) translateZ(40px);
+}
+
+@keyframes float-tesseract {
+  0%, 100% { 
+    transform: translateY(0) translateX(0) rotateZ(0deg);
+    opacity: 0.6;
+  }
+  25% { 
+    transform: translateY(-30px) translateX(20px) rotateZ(90deg);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-60px) translateX(-10px) rotateZ(180deg);
+    opacity: 1;
+  }
+  75% { 
+    transform: translateY(-30px) translateX(-20px) rotateZ(270deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes rotate-mini {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Cosmic Particles */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--primary-red);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary-red);
+  animation: particle-float infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px) scale(1.5);
+    opacity: 0;
+  }
 }
 
 .about-dduc-content {
@@ -40,6 +253,29 @@
   max-width: 1000px;
   width: 100%;
   text-align: center;
+}
+
+.section-title {
+  font-family: var(--gothic-font);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  margin-bottom: 4rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.section-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.red-text {
+  color: var(--primary-red);
+  text-shadow: 0 0 40px rgba(220, 38, 38, 0.6);
 }
 
 .about-dduc-text {
@@ -51,12 +287,41 @@
   line-height: 1.9;
   color: rgba(255, 255, 255, 0.85);
   opacity: 0;
-  animation: fadeInUp 1s ease-out 0.3s forwards;
+  transform: translateY(50px);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-dduc-text p.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
 }
 
 @media (max-width: 768px) {
   .about-tedxdduc {
     padding: 6rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 10vw, 4rem);
+    margin-bottom: 3rem;
+  }
+
+  .floating-tesseract {
+    width: 50px;
+    height: 50px;
+  }
+
+  .mini-face {
+    width: 50px;
+    height: 50px;
+  }
+
+  .mini-face:nth-child(1),
+  .mini-face:nth-child(2),
+  .mini-face:nth-child(3),
+  .mini-face:nth-child(4) {
+    transform: translateZ(25px);
   }
 }
 
