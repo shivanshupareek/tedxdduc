@@ -1,0 +1,104 @@
+.contact-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1a0000 0%, #000000 50%, #000000 100%);
+}
+
+.contact-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  pointer-events: none;
+}
+
+.contact-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: contact-pulse 5s ease-in-out infinite;
+}
+
+@keyframes contact-pulse {
+  0%, 100% { 
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.contact-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.contact-title {
+  font-family: var(--gothic-font);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  margin-bottom: 4rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-description {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.contact-description:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.contact-description:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.contact-note {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 6rem 1.5rem;
+  }
+
+  .contact-title {
+    font-size: clamp(2rem, 10vw, 4rem);
+    margin-bottom: 3rem;
+  }
+}
+

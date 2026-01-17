@@ -1,0 +1,149 @@
+.about-tedx {
+  position: relative;
+  min-height: 100vh;
+  padding: 8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1a0000 0%, #000000 50%, #1a0000 100%);
+}
+
+.about-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  pointer-events: none;
+}
+
+.red-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+.about-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+}
+
+.section-title {
+  font-family: var(--gothic-font);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  margin-bottom: 4rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.red-text {
+  color: var(--primary-red);
+  text-shadow: 0 0 40px rgba(220, 38, 38, 0.6);
+}
+
+.about-text-container {
+  margin-bottom: 4rem;
+}
+
+.about-description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.about-description:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.about-description:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.explore-button-container {
+  margin-top: 3rem;
+}
+
+.explore-button {
+  padding: 1.2rem 3rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: transparent;
+  border: 2px solid var(--primary-red);
+  color: var(--primary-red);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.explore-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-red);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.explore-button:hover {
+  color: var(--white);
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.5);
+}
+
+.explore-button:hover::before {
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  .about-tedx {
+    padding: 6rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 10vw, 4rem);
+    margin-bottom: 3rem;
+  }
+}
+

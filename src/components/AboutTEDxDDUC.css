@@ -1,0 +1,62 @@
+.about-tedxdduc {
+  position: relative;
+  min-height: 100vh;
+  padding: 8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1a0000 0%, #000000 50%, #1a0000 100%);
+}
+
+.about-dduc-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 130%;
+  pointer-events: none;
+}
+
+.cosmic-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 30% 20%, rgba(220, 38, 38, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(220, 38, 38, 0.15) 0%, transparent 40%);
+  animation: cosmic-drift 25s ease-in-out infinite;
+}
+
+@keyframes cosmic-drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -20px) rotate(5deg); }
+  66% { transform: translate(-20px, 30px) rotate(-5deg); }
+}
+
+.about-dduc-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+}
+
+.about-dduc-text {
+  margin-bottom: 4rem;
+}
+
+.about-dduc-text p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.3s forwards;
+}
+
+@media (max-width: 768px) {
+  .about-tedxdduc {
+    padding: 6rem 1.5rem;
+  }
+}
+
