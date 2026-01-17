@@ -1,6 +1,6 @@
 .footer {
   position: relative;
-  padding: 4rem 2rem 2rem;
+  padding: 5rem 2rem 2rem;
   background: linear-gradient(180deg, #000000 0%, #0a0000 100%);
   border-top: 1px solid rgba(220, 38, 38, 0.2);
 }
@@ -11,65 +11,196 @@
   text-align: center;
 }
 
+/* Social Media Links */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link svg {
+  width: 28px;
+  height: 28px;
+  transition: all 0.3s ease;
+}
+
+.social-link.instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: var(--white);
+}
+
+.social-link.email {
+  background: #dc2626;
+  color: var(--white);
+}
+
+.social-link.linkedin {
+  background: #0077b5;
+  color: var(--white);
+}
+
+.social-link.twitter {
+  background: #1da1f2;
+  color: var(--white);
+}
+
+.social-link.flickr {
+  background: #ff0084;
+  color: var(--white);
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 5px 20px rgba(220, 38, 38, 0.4);
+}
+
+.social-link:hover svg {
+  transform: scale(1.1);
+}
+
+/* Logo Section */
+.footer-logo {
+  margin-bottom: 2rem;
+}
+
+.footer-logo-text {
+  font-family: var(--gothic-font);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.logo-tedx {
+  color: var(--primary-red);
+  text-shadow: 0 0 30px rgba(220, 38, 38, 0.6);
+}
+
+.logo-dduc {
+  color: var(--white);
+}
+
+.footer-tagline {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: rgba(255, 165, 0, 0.9);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+/* Description */
+.footer-description {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.footer-description p {
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+}
+
+/* License Statement */
+.footer-license {
+  margin-bottom: 2rem;
+}
+
+.footer-license p {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.footer-license strong {
+  color: var(--white);
+}
+
+/* Navigation Links */
 .footer-links {
   display: flex;
   justify-content: center;
-  gap: 3rem;
-  margin-bottom: 2rem;
+  align-items: center;
+  gap: 1rem;
   flex-wrap: wrap;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(220, 38, 38, 0.2);
 }
 
 .footer-links a {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-weight: 500;
+  font-size: 1rem;
   transition: color 0.3s ease;
   position: relative;
-}
-
-.footer-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary-red);
-  transition: width 0.3s ease;
 }
 
 .footer-links a:hover {
   color: var(--primary-red);
 }
 
-.footer-links a:hover::after {
-  width: 100%;
+.separator {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
 }
 
-.footer-text {
-  margin-top: 2rem;
-}
-
-.footer-text p {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-
-.footer-note {
-  font-size: 0.8rem;
-  font-style: italic;
-  opacity: 0.5;
+/* Active link styling */
+.footer-links a[href="#home"],
+.footer-links a[href="#contact"] {
+  color: var(--primary-red);
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding: 3rem 1.5rem 1.5rem;
+    padding: 4rem 1.5rem 1.5rem;
+  }
+
+  .footer-social {
+    gap: 1.5rem;
+  }
+
+  .social-link {
+    width: 45px;
+    height: 45px;
+  }
+
+  .social-link svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer-logo-text {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .footer-description p {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    line-height: 1.7;
   }
 
   .footer-links {
-    gap: 2rem;
+    gap: 0.8rem;
     flex-direction: column;
   }
-}
 
+  .footer-links a {
+    font-size: 0.95rem;
+  }
+
+  .separator {
+    display: none;
+  }
+}

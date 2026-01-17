@@ -35,9 +35,9 @@ function App() {
       <main className="main-content">
         <Hero />
         <ThemeSection />
+        <ReasonsToAttend />
         <AboutTEDx />
         <AboutTEDxDDUC />
-        <ReasonsToAttend />
         <EventDate />
         <Contact />
       </main>
